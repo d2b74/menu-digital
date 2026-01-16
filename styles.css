@@ -65,6 +65,7 @@ h5 {
 .product-card .info {
   padding: 8px;
   text-align: center;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;

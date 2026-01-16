@@ -1,38 +1,4 @@
-const catalogo = {
-  pizzas: {
-    titulo: "🍕 Pizzas",
-    productos: [
-      { nombre: "Muzarella", precio: "$4500", img: "img/pizzas/muzza.jpeg", desc: "Clásica con mozzarella y tomate" },
-      { nombre: "Especial", precio: "$5200", img: "img/pizzas/especial.jpeg", desc: "Mozzarella, jamón y morrones" },
-      { nombre: "Napolitana", precio: "$5000", img: "img/pizzas/napo.jpeg", desc: "Mozzarella, tomate y ajo" },
-      { nombre: "Muzarella", precio: "$4500", img: "img/pizzas/muzza.jpeg", desc: "Clásica con mozzarella y tomate" },
-      { nombre: "Especial", precio: "$5200", img: "img/pizzas/especial.jpeg", desc: "Mozzarella, jamón y morrones" },
-      { nombre: "Napolitana", precio: "$5000", img: "img/pizzas/napo.jpeg", desc: "Mozzarella, tomate y ajo" }
-    ]
-  },
-  bebidas: {
-    titulo: "🥤 Bebidas",
-    productos: [
-      { nombre: "Coca Cola", precio: "$1200", img: "img/bebidas/coca.jpeg" },
-      { nombre: "Sprite", precio: "$1100", img: "img/bebidas/sprite.jpeg" },
-      { nombre: "Agua", precio: "$900", img: "img/bebidas/agua.jpeg" },
-      { nombre: "Coca Cola", precio: "$1200", img: "img/bebidas/coca.jpeg" },
-      { nombre: "Sprite", precio: "$1100", img: "img/bebidas/sprite.jpeg" },
-      { nombre: "Agua", precio: "$900", img: "img/bebidas/agua.jpeg" }
-    ]
-  },
-  postres: {
-    titulo: "🍰 Postres",
-    productos: [
-      { nombre: "Helado", precio: "$1200", img: "img/postres/helado.jpeg" },
-      { nombre: "Flan", precio: "$1100", img: "img/postres/flan.jpeg" },
-      { nombre: "Helado", precio: "$1200", img: "img/postres/helado.jpeg" },
-      { nombre: "Flan", precio: "$1100", img: "img/postres/flan.jpeg" },
-      { nombre: "Helado", precio: "$1200", img: "img/postres/helado.jpeg" },
-      { nombre: "Flan", precio: "$1100", img: "img/postres/flan.jpeg" }
-    ]
-  }
-};
+
 
 const container = document.getElementById("catalogoContainer");
 
@@ -52,8 +18,10 @@ Object.values(catalogo).forEach(categoria => {
 
     card.innerHTML = `
       <img src="${producto.img}">
-      <h6>${producto.nombre}</h6>
-      <p>${producto.precio}</p>
+      <div class="info">
+        <div class="name">${producto.nombre}</div>
+        <div class="price">${producto.precio}</div>
+      </div>
     `;
 
     card.dataset.nombre = producto.nombre;
@@ -90,25 +58,3 @@ function openModal(card) {
 function closeModal() {
   document.getElementById("productModal").style.display = "none";
 }
-new Swiper(`.swiper-${key}`, {
-  spaceBetween: 12,
-  grabCursor: true,
-  pagination: {
-    el: `.swiper-${key} .swiper-pagination`,
-    clickable: true
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 2
-    },
-    576: {
-      slidesPerView: 3
-    },
-    992: {
-      slidesPerView: 4
-    },
-    1200: {
-      slidesPerView: 5
-    }
-  }
-});
